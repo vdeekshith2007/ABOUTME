@@ -71,4 +71,4 @@ You can also drag-and-drop the folder directly onto [vercel.com/new](https://ver
 - Colors, fonts and spacing: edit the CSS variables at the top of `style.css` (`:root { --bg: ...; --accent: ...; }`).
 - Section content (projects, skills, experience): edit the corresponding `<section>` in `index.html`.
 - Animation behavior (typing speed, particle count, tilt intensity): edit the relevant function in `script.js`.
--
+
