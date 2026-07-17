@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deekshith Vataparthi — AI/ML &amp; Full Stack Developer</title>
+<meta name="description" content="Portfolio of Deekshith Vataparthi — Computer Science Engineering student, AI/ML &amp; Generative AI Developer, Full Stack Developer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="scrollProgress"></div>
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+
+<div id="loader">
+  <div class="loader-brackets">&lt;DEV<span class="mono" style="color:var(--text)">/</span>AI&gt;</div>
+  <div class="loader-bar"><span></span></div>
+</div>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <nav>
+      <a href="#hero" class="logo">D<span>V</span>.</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+        <a href="#contact" class="btn-nav-cta">Let's talk</a>
+        <div class="burger" id="burger"><span></span><span></span><span></span></div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a>
+  <a href="#education">Education</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#experience">Experience</a>
+  <a href="#achievements">Achievements</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="particle-canvas"></canvas>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <!-- To add your photo: put an <img> inside .avatar-hero (e.g. <img src="your-photo.jpg" alt="Deekshith Vataparthi">) and remove the "DV" span -->
+        <div class="avatar avatar-hero">
+          <span class="avatar-initials">DV</span>
+        </div>
+        <div class="hero-eyebrow"><span class="dot"></span>AVAILABLE FOR INTERNSHIPS &amp; NEW GRAD ROLES</div>
+        <h1 class="hero-name">Deekshith<br><span class="accent">Vataparthi</span></h1>
+        <div class="hero-role mono">&gt; <span id="typedRole"></span><span class="cursor-blink">&nbsp;</span></div>
+        <p class="hero-desc">Computer Science Engineering student who builds intelligent, production-grade systems — from LLM-powered RAG pipelines to full stack web applications. Aiming to engineer AI products at companies like Google, Microsoft, NVIDIA and Apple.</p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn btn-primary">View Projects →</a>
+          <a href="#" id="resumeBtn" class="btn btn-outline">Download Resume</a>
+          <a href="#contact" class="btn btn-ghost">Contact Me</a>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div class="float-icons" style="top:-24px; left:10%; animation-delay:.2s;">🐍 Python</div>
+        <div class="float-icons" style="top:40px; right:0; animation-delay:1.1s;">⚛️ React</div>
+        <div class="float-icons" style="bottom:20px; left:-10px; animation-delay:2s;">🧠 LangChain</div>
+        <div class="terminal">
+          <div class="terminal-bar"><span></span><span></span><span></span><div class="t-title">deekshith@dev — zsh</div></div>
+          <div class="terminal-body" id="terminalBody"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">01 · About</div>
+    <h2 class="sec-title reveal">Engineering intelligence into real products.</h2>
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="about-card">
+          <!-- To add your photo: put an <img> inside .avatar-about (e.g. <img src="your-photo.jpg" alt="Deekshith Vataparthi">) and remove the "DV" span -->
+          <div class="avatar avatar-about">
+            <span class="avatar-initials">DV</span>
+          </div>
+          <h3 class="about-card-name">Deekshith Vataparthi</h3>
+          <p class="about-card-role mono">AI/ML · Generative AI · Full Stack</p>
+          <div class="about-stats">
+            <div><div class="num">9.21</div><div class="lbl">CGPA</div></div>
+            <div><div class="num">5+</div><div class="lbl">AI/Full-Stack Projects</div></div>
+            <div><div class="num">10+</div><div class="lbl">Technologies Mastered</div></div>
+            <div><div class="num">1</div><div class="lbl">AI/ML Internship</div></div>
+          </div>
+        </div>
+        <div class="pull-quote reveal">
+          <span class="pq-mark">“</span>
+          I don't just want to use AI — I want to understand it deeply enough to build with it responsibly.
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <p>I'm a <strong>Computer Science Engineering student</strong> with a deep interest in <strong>Artificial Intelligence, Generative AI, and Large Language Models</strong>. My work sits at the intersection of solid computer science fundamentals — data structures, system design, databases — and applied AI, where I build things like retrieval-augmented generation pipelines, computer-vision-based health tools, and AI agents.</p>
+        <p>Alongside AI/ML, I'm equally comfortable across the full stack — designing REST APIs with FastAPI and Flask, building interfaces in React, and modeling data in SQL, PostgreSQL and MongoDB. I care about shipping systems that are not just accurate, but usable, fast and well-engineered end to end.</p>
+        <p>My goal is to grow into an <strong>AI Engineer role at a product-based technology company</strong>, where I can work on systems used at scale and keep learning at the edge of what generative AI can do.</p>
+      </div>
+    </div>
+
+    <div class="about-block reveal">
+      <h3 class="about-block-title">My journey so far</h3>
+      <p>My interest in computer science started the way it does for a lot of engineers — with curiosity about how the software on my screen actually worked underneath. That curiosity turned into a habit of building: small C and Java programs first, then web pages, then full applications with a backend and a database behind them. Somewhere along the way I got pulled into machine learning, and once I trained my first model and watched it make a correct prediction, I was hooked. That moment is a big part of why I chose to specialize in AI/ML and Generative AI rather than stop at "just" full stack development.</p>
+        <p>Over the course of my B.Tech, I've tried to treat every course and every project as a chance to go one level deeper — not just to pass an exam, but to actually understand the "why" behind data structures, database design, operating systems and networks. That fundamentals-first approach is what let me pick up Generative AI concepts like RAG, embeddings and agentic workflows quickly once I started exploring them on my own, well beyond what any single course covered. Maintaining a 9.21 CGPA throughout has mattered to me, but it's always been a side effect of that curiosity rather than the goal itself.</p>
+        <p>The AI/ML virtual internship with Infosys Springboard gave me my first structured exposure to real-world ML workflows — data cleaning, model evaluation, and the kind of iterative debugging that textbooks rarely prepare you for. It confirmed something I'd already started to suspect: I enjoy the applied side of AI far more than the purely theoretical side. I want to build things people can actually open in a browser and use, not just notebooks that produce a metric.</p>
+    </div>
+
+    <div class="about-block reveal">
+      <h3 class="about-block-title">What I focus on</h3>
+      <div class="focus-grid">
+        <div class="focus-item">
+          <div class="focus-ic">🧠</div>
+          <h4>Generative AI &amp; LLMs</h4>
+          <p>Designing RAG pipelines, working with embeddings and vector search, and orchestrating LLM-powered workflows with LangChain and LangGraph.</p>
+        </div>
+        <div class="focus-item">
+          <div class="focus-ic">🩺</div>
+          <h4>AI for healthcare</h4>
+          <p>Applying computer vision and generative models to problems like skin condition analysis and symptom-based diagnosis support.</p>
+        </div>
+        <div class="focus-item">
+          <div class="focus-ic">🛠️</div>
+          <h4>Full stack engineering</h4>
+          <p>Building complete systems — React front ends, FastAPI/Flask/Express back ends, and SQL/NoSQL data layers — not just isolated scripts.</p>
+        </div>
+        <div class="focus-item">
+          <div class="focus-ic">📐</div>
+          <h4>Strong fundamentals</h4>
+          <p>Treating data structures, algorithms, DBMS, OS and networking as the foundation everything else — including AI — is built on top of.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-block reveal">
+      <h3 class="about-block-title">How I like to work</h3>
+      <p>I tend to start any new project by writing down the actual problem in plain language before I open an editor — it's easy to jump straight to "which library should I use" and lose sight of who the system is actually for. From there I like to build a rough end-to-end version early, even if it's unpolished, so I can see the whole pipeline working before I spend time refining any one piece. That habit came from a few early projects where I over-engineered a single component and only later realized the overall flow didn't hold together.</p>
+      <p>I'm comfortable working independently — most of my AI/ML and full stack projects have been self-driven, which means I've had to be my own reviewer, tester and documentation writer. That's taught me to be honest about a project's weak points rather than just its demo-ready parts, and it's part of why I care about things like clean READMEs, sensible commit history and code that a reviewer at a product company could actually read.</p>
+    </div>
+
+    <div class="about-block reveal">
+      <h3 class="about-block-title">Beyond the code</h3>
+      <p>Outside of coursework and projects, I spend a lot of time reading about new AI research and product launches — trying to understand not just what a new model or technique can do, but why it was built that way. I'm an active problem solver on LeetCode, partly for interview preparation and partly because I genuinely enjoy the puzzle of finding a cleaner algorithm. I also enjoy explaining technical concepts to classmates and juniors; teaching something is usually the fastest way I've found to discover the gaps in my own understanding.</p>
+    </div>
+
+    <div class="about-block reveal">
+      <h3 class="about-block-title">Where I'm headed</h3>
+      <p>My near-term goal is to land an internship or entry-level role at a <strong>product-based technology company</strong> — somewhere like Google, Microsoft, NVIDIA, Apple, Ericsson or Cisco — where I can work on AI-driven products used by real people at real scale, alongside engineers I can learn from. Longer term, I want to grow into a role where I'm designing the systems, not just implementing them: someone who understands both the machine learning underneath a product and the full stack required to ship it responsibly and reliably.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="background:var(--bg-alt);">
+  <div class="wrap">
+    <div class="eyebrow">02 · Education</div>
+    <h2 class="sec-title reveal">Academic foundation</h2>
+    <p class="sec-sub reveal">The formal training behind the code.</p>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <h3>Bachelor of Technology — Computer Science &amp; Engineering</h3>
+          <div class="tl-org">Sri Venkateshwara College of Engineering and Technology</div>
+          <p style="color:var(--text-muted); font-size:14px; line-height:1.7;">Core coursework in Data Structures &amp; Algorithms, Object-Oriented Programming, DBMS, Operating Systems, Computer Networks and System Design fundamentals — paired with self-driven specialization in AI/ML and Generative AI.</p>
+          <div class="tl-meta">
+            <span class="chip">CGPA: 9.21</span>
+            <span class="chip">B.Tech CSE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">03 · Skills</div>
+    <h2 class="sec-title reveal">Technical toolkit</h2>
+    <p class="sec-sub reveal">Organized the way I'd organize an import statement — by module.</p>
+    <div class="skills-grid" id="skillsGrid">
+
+      <div class="skill-card reveal">
+        <div class="imp">import { ... } <span class="k">from</span> 'core-languages'</div>
+        <h3>Programming &amp; CS Fundamentals</h3>
+        <div class="skill-row"><div class="sr-top"><span>C / C++</span><span>85%</span></div><div class="skill-bar"><span data-w="85"></span></div></div>
+        <div class="skill-row"><div class="sr-top"><span>Java</span><span>82%</span></div><div class="skill-bar"><span data-w="82"></span></div></div>
+        <div class="skill-row"><div class="sr-top"><span>Python</span><span>92%</span></div><div class="skill-bar"><span data-w="92"></span></div></div>
+        <div class="skill-row"><div class="sr-top"><span>DSA &amp; System Design</span><span>85%</span></div><div class="skill-bar"><span data-w="85"></span></div></div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="imp">import { ... } <span class="k">from</span> 'frontend'</div>
+        <h3>Frontend Development</h3>
+        <div class="skill-row"><div class="sr-top"><span>HTML5 / CSS3</span><span>90%</span></div><div class="skill-bar"><span data-w="90"></span></div></div>
+        <div class="skill-row"><div class="sr-top"><span>JavaScript</span><span>85%</span></div><div class="skill-bar"><span data-w="85"></span></div></div>
+        <div class="skill-row"><div class="sr-top"><span>React.js</span><span>84%</span></div><div class="skill-bar"><span data-w="84"></span></div></div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="imp">import { ... } <span class="k">from</span> 'backend'</div>
+        <h3>Backend Development</h3>
+        <div class="skill-row"><div class="sr-top"><span>Node.js / Express.js</span><span>80%</span></div><div class="skill-bar"><span data-w="80"></span></div></div>
+        <div class="skill-row"><div class="sr-top"><span>FastAPI / Flask</span><span>88%</span></div><div class="skill-bar"><span data-w="88"></span></div></div>
+        <div class="skill-row"><div class="sr-top"><span>REST APIs</span><span>86%</span></div><div class="skill-bar"><span data-w="86"></span></div></div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="imp">import { ... } <span class="k">from</span> 'ai-ml'</div>
+        <h3>AI / Machine Learning</h3>
+        <div class="skill-row"><div class="sr-top"><span>TensorFlow / PyTorch</span><span>85%</span></div><div class="skill-bar"><span data-w="85"></span></div></div>
+        <div class="skill-row"><div class="sr-top"><span>Generative AI / LLMs</span><span>90%</span></div><div class="skill-bar"><span data-w="90"></span></div></div>
+        <div class="skill-row"><div class="sr-top"><span>LangChain / LangGraph / RAG</span><span>88%</span></div><div class="skill-bar"><span data-w="88"></span></div></div>
+        <div class="skill-row"><div class="sr-top"><span>Scikit-learn / Pandas / NumPy</span><span>88%</span></div><div class="skill-bar"><span data-w="88"></span></div></div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="imp">import { ... } <span class="k">from</span> 'databases'</div>
+        <h3>Databases</h3>
+        <div class="skill-row"><div class="sr-top"><span>SQL / PostgreSQL</span><span>84%</span></div><div class="skill-bar"><span data-w="84"></span></div></div>
+        <div class="skill-row"><div class="sr-top"><span>MongoDB</span><span>78%</span></div><div class="skill-bar"><span data-w="78"></span></div></div>
+        <div class="skill-row"><div class="sr-top"><span>Vector Databases</span><span>82%</span></div><div class="skill-bar"><span data-w="82"></span></div></div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="imp">import { ... } <span class="k">from</span> 'tooling'</div>
+        <h3>Tools &amp; Platforms</h3>
+        <div class="skill-row"><div class="sr-top"><span>Git / GitHub</span><span>90%</span></div><div class="skill-bar"><span data-w="90"></span></div></div>
+        <div class="skill-row"><div class="sr-top"><span>Docker</span><span>75%</span></div><div class="skill-bar"><span data-w="75"></span></div></div>
+        <div class="skill-row"><div class="sr-top"><span>Linux / VS Code</span><span>88%</span></div><div class="skill-bar"><span data-w="88"></span></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background:var(--bg-alt);">
+  <div class="wrap">
+    <div class="eyebrow">04 · Projects</div>
+    <h2 class="sec-title reveal">Selected work</h2>
+    <p class="sec-sub reveal">Five builds spanning generative AI, healthcare, RAG, ML and full stack systems.</p>
+    <div class="projects-grid">
+
+      <div class="proj-card reveal">
+        <div class="proj-thumb"><span class="proj-idx">01</span></div>
+        <div class="proj-body">
+          <h3>External Skin Infection Detection using Generative AI</h3>
+          <p>An AI-powered healthcare assistant that analyzes skin condition images and provides intelligent insights using Generative AI and Machine Learning.</p>
+          <div class="tech-tags"><span>Python</span><span>TensorFlow</span><span>Generative AI</span><span>Deep Learning</span><span>Flask/Streamlit</span></div>
+          <div class="proj-links"><a href="https://github.com/vdeekshith2007" target="_blank" rel="noopener">↗ GitHub</a><a href="#">↗ Live Demo</a></div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-thumb"><span class="proj-idx">02</span></div>
+        <div class="proj-body">
+          <h3>AI Diagnosis Helping Centre</h3>
+          <p>An AI-based healthcare support system that helps users analyze symptoms and provides useful medical information using AI technologies.</p>
+          <div class="tech-tags"><span>Python</span><span>Machine Learning</span><span>Generative AI</span><span>Flask</span><span>Streamlit</span></div>
+          <div class="proj-links"><a href="https://github.com/vdeekshith2007" target="_blank" rel="noopener">↗ GitHub</a><a href="#">↗ Live Demo</a></div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-thumb"><span class="proj-idx">03</span></div>
+        <div class="proj-body">
+          <h3>PDF Question Answering System using RAG and LLM</h3>
+          <p>Upload PDFs and ask questions in natural language. Chunks and embeds documents, retrieves relevant context, and generates accurate, context-aware answers with an LLM.</p>
+          <div class="tech-tags"><span>LangChain</span><span>LangGraph</span><span>RAG</span><span>FAISS/ChromaDB</span><span>FastAPI</span></div>
+          <div class="proj-links"><a href="https://github.com/vdeekshith2007" target="_blank" rel="noopener">↗ GitHub</a><a href="#">↗ Live
