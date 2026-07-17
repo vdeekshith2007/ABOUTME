@@ -72,4 +72,3 @@ You can also drag-and-drop the folder directly onto [vercel.com/new](https://ver
 - Section content (projects, skills, experience): edit the corresponding `<section>` in `index.html`.
 - Animation behavior (typing speed, particle count, tilt intensity): edit the relevant function in `script.js`.
 -
-##creating best animated and impressed portfolio of my self 
