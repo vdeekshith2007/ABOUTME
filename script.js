@@ -1,4 +1,4 @@
-// ===== Scroll progress bar =====
+
 const scrollProgress = document.getElementById('scrollProgress');
 function updateProgress(){
   const h = document.documentElement;
