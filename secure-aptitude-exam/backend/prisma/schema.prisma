@@ -1,0 +1,517 @@
+// This is your Prisma schema file
+// Learn more about it: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─────────────────────────────────────────
+// ENUMS
+// ─────────────────────────────────────────
+
+enum Role {
+  SUPER_ADMIN
+  EXAM_ADMIN
+  QUESTION_SETTER
+  REVIEWER
+  STUDENT
+}
+
+enum QuestionType {
+  SINGLE_CHOICE
+  MULTIPLE_CHOICE
+  TRUE_FALSE
+  SHORT_ANSWER
+  CODING
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum TestStatus {
+  DRAFT
+  SCHEDULED
+  ACTIVE
+  COMPLETED
+  ARCHIVED
+}
+
+enum AttemptStatus {
+  IN_PROGRESS
+  SUBMITTED
+  AUTO_SUBMITTED
+  ABANDONED
+}
+
+enum ProctorEventType {
+  TAB_SWITCH
+  FULLSCREEN_EXIT
+  COPY_PASTE
+  RIGHT_CLICK
+  WEBCAM_FACE_NOT_DETECTED
+  WEBCAM_MULTIPLE_FACES
+  DEVICE_CHANGE
+  IP_CHANGE
+  BROWSER_REFRESH
+  KEYBOARD_SHORTCUT
+  FOCUS_LOST
+  FOCUS_REGAINED
+  NETWORK_DISCONNECT
+}
+
+enum NotificationType {
+  TEST_SCHEDULED
+  TEST_STARTED
+  TEST_COMPLETED
+  RESULT_PUBLISHED
+  CERTIFICATE_READY
+  SYSTEM_ALERT
+  FORUM_REPLY
+}
+
+enum AuditAction {
+  USER_REGISTERED
+  USER_LOGGED_IN
+  USER_LOGGED_OUT
+  USER_PASSWORD_CHANGED
+  USER_MFA_ENABLED
+  USER_MFA_DISABLED
+  TEST_CREATED
+  TEST_UPDATED
+  TEST_DELETED
+  QUESTION_CREATED
+  QUESTION_UPDATED
+  QUESTION_DELETED
+  ATTEMPT_STARTED
+  ATTEMPT_SUBMITTED
+  RESULT_VIEWED
+  CERTIFICATE_DOWNLOADED
+  ADMIN_ACTION
+}
+
+// ─────────────────────────────────────────
+// USER & AUTH
+// ─────────────────────────────────────────
+
+model User {
+  id                String    @id @default(uuid())
+  email             String    @unique
+  username          String    @unique
+  firstName         String
+  lastName          String
+  passwordHash      String?
+  role              Role      @default(STUDENT)
+  isEmailVerified   Boolean   @default(false)
+  isActive          Boolean   @default(true)
+  isBanned          Boolean   @default(false)
+  banReason         String?
+  googleId          String?   @unique
+  avatarUrl         String?
+  college           String?
+  phone             String?
+  mfaEnabled        Boolean   @default(false)
+  mfaSecret         String?
+  mfaBackupCodes    String[]  @default([])
+  emailOtp          String?
+  emailOtpExpiresAt DateTime?
+  resetToken        String?
+  resetTokenExpiry  DateTime?
+  lastLoginAt       DateTime?
+  lastLoginIp       String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  refreshTokens    RefreshToken[]
+  attempts         Attempt[]
+  certificates     Certificate[]
+  notifications    Notification[]
+  auditLogs        AuditLog[]
+  deviceFingerprints DeviceFingerprint[]
+  forumPosts       ForumPost[]
+  forumReplies     ForumReply[]
+  bookmarks        Bookmark[]
+  achievements     UserAchievement[]
+  createdTests     Test[]    @relation("TestCreator")
+
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  isRevoked Boolean  @default(false)
+  deviceInfo String?
+  ipAddress String?
+  createdAt DateTime @default(now())
+
+  @@map("refresh_tokens")
+}
+
+model DeviceFingerprint {
+  id           String   @id @default(uuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  browser      String?
+  os           String?
+  screenRes    String?
+  timezone     String?
+  fingerprint  String
+  ipAddress    String?
+  isTrusted    Boolean  @default(false)
+  lastSeenAt   DateTime @default(now())
+  createdAt    DateTime @default(now())
+
+  @@map("device_fingerprints")
+}
+
+// ─────────────────────────────────────────
+// QUESTION BANK
+// ─────────────────────────────────────────
+
+model Category {
+  id          String     @id @default(uuid())
+  name        String     @unique
+  slug        String     @unique
+  description String?
+  icon        String?
+  color       String?
+  parentId    String?
+  parent      Category?  @relation("CategoryTree", fields: [parentId], references: [id])
+  children    Category[] @relation("CategoryTree")
+  questions   Question[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@map("categories")
+}
+
+model Tag {
+  id        String     @id @default(uuid())
+  name      String     @unique
+  questions QuestionTag[]
+  createdAt DateTime   @default(now())
+
+  @@map("tags")
+}
+
+model Question {
+  id           String        @id @default(uuid())
+  text         String
+  type         QuestionType  @default(SINGLE_CHOICE)
+  options      Json?         // Array of {id, text, isCorrect}
+  correctAnswer String?      // for short answer
+  explanation  String?
+  difficulty   Difficulty    @default(MEDIUM)
+  marks        Float         @default(1.0)
+  negativeMarks Float        @default(0.0)
+  timeLimit    Int?          // seconds
+  categoryId   String
+  category     Category      @relation(fields: [categoryId], references: [id])
+  tags         QuestionTag[]
+  imageUrl     String?
+  codeSnippet  String?
+  language     String?
+  isActive     Boolean       @default(true)
+  createdById  String
+  testQuestions TestQuestion[]
+  attemptAnswers AttemptAnswer[]
+  bookmarks    Bookmark[]
+  aiGenerated  Boolean       @default(false)
+  aiScore      Float?        // difficulty prediction
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@map("questions")
+}
+
+model QuestionTag {
+  questionId String
+  tagId      String
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  tag        Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([questionId, tagId])
+  @@map("question_tags")
+}
+
+// ─────────────────────────────────────────
+// TEST
+// ─────────────────────────────────────────
+
+model Test {
+  id               String      @id @default(uuid())
+  title            String
+  description      String?
+  instructions     String?
+  status           TestStatus  @default(DRAFT)
+  totalMarks       Float       @default(0)
+  passingMarks     Float       @default(0)
+  duration         Int         // minutes
+  maxAttempts      Int         @default(1)
+  shuffleQuestions Boolean     @default(true)
+  shuffleOptions   Boolean     @default(true)
+  showResults      Boolean     @default(true)
+  negativeMarking  Boolean     @default(false)
+  fullScreenMode   Boolean     @default(true)
+  proctorEnabled   Boolean     @default(true)
+  webcamEnabled    Boolean     @default(false)
+  tabSwitchLimit   Int         @default(3)
+  scheduledAt      DateTime?
+  endsAt           DateTime?
+  createdById      String
+  createdBy        User        @relation("TestCreator", fields: [createdById], references: [id])
+  sections         TestSection[]
+  attempts         Attempt[]
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+
+  @@map("tests")
+}
+
+model TestSection {
+  id            String         @id @default(uuid())
+  testId        String
+  test          Test           @relation(fields: [testId], references: [id], onDelete: Cascade)
+  title         String
+  description   String?
+  duration      Int?           // section-specific timing in minutes
+  order         Int            @default(0)
+  questions     TestQuestion[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  @@map("test_sections")
+}
+
+model TestQuestion {
+  id         String      @id @default(uuid())
+  testId     String
+  sectionId  String
+  section    TestSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  questionId String
+  question   Question    @relation(fields: [questionId], references: [id])
+  order      Int         @default(0)
+  marks      Float?      // override question marks
+  negativeMarks Float?
+
+  @@map("test_questions")
+}
+
+// ─────────────────────────────────────────
+// ATTEMPTS
+// ─────────────────────────────────────────
+
+model Attempt {
+  id              String        @id @default(uuid())
+  userId          String
+  user            User          @relation(fields: [userId], references: [id])
+  testId          String
+  test            Test          @relation(fields: [testId], references: [id])
+  status          AttemptStatus @default(IN_PROGRESS)
+  startedAt       DateTime      @default(now())
+  submittedAt     DateTime?
+  totalScore      Float         @default(0)
+  percentage      Float         @default(0)
+  isPassed        Boolean       @default(false)
+  timeTaken       Int?          // seconds
+  tabSwitches     Int           @default(0)
+  fullscreenExits Int           @default(0)
+  riskScore       Float         @default(0)
+  ipAddress       String?
+  deviceInfo      Json?
+  answers         AttemptAnswer[]
+  proctorEvents   ProctorEvent[]
+  certificate     Certificate?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  @@unique([userId, testId])
+  @@map("attempts")
+}
+
+model AttemptAnswer {
+  id             String   @id @default(uuid())
+  attemptId      String
+  attempt        Attempt  @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  questionId     String
+  question       Question @relation(fields: [questionId], references: [id])
+  selectedOptions Json?   // array of option ids
+  textAnswer     String?
+  codeAnswer     String?
+  isCorrect      Boolean  @default(false)
+  marksObtained  Float    @default(0)
+  timeTaken      Int?     // seconds on this question
+  isBookmarked   Boolean  @default(false)
+  isSkipped      Boolean  @default(false)
+  answeredAt     DateTime?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("attempt_answers")
+}
+
+// ─────────────────────────────────────────
+// PROCTORING
+// ─────────────────────────────────────────
+
+model ProctorEvent {
+  id          String           @id @default(uuid())
+  attemptId   String
+  attempt     Attempt          @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  eventType   ProctorEventType
+  description String?
+  severity    Int              @default(1) // 1-5
+  metadata    Json?
+  occurredAt  DateTime         @default(now())
+
+  @@map("proctor_events")
+}
+
+// ─────────────────────────────────────────
+// CERTIFICATES
+// ─────────────────────────────────────────
+
+model Certificate {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  attemptId   String   @unique
+  attempt     Attempt  @relation(fields: [attemptId], references: [id])
+  certNumber  String   @unique
+  pdfUrl      String?
+  qrCode      String?
+  issuedAt    DateTime @default(now())
+  hash        String   // tamper detection
+
+  @@map("certificates")
+}
+
+// ─────────────────────────────────────────
+// LEADERBOARD & ACHIEVEMENTS
+// ─────────────────────────────────────────
+
+model Badge {
+  id          String          @id @default(uuid())
+  name        String          @unique
+  description String?
+  icon        String?
+  condition   Json            // criteria for earning
+  createdAt   DateTime        @default(now())
+  achievements UserAchievement[]
+
+  @@map("badges")
+}
+
+model UserAchievement {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  badgeId   String
+  badge     Badge    @relation(fields: [badgeId], references: [id])
+  earnedAt  DateTime @default(now())
+
+  @@unique([userId, badgeId])
+  @@map("user_achievements")
+}
+
+// ─────────────────────────────────────────
+// BOOKMARKS
+// ─────────────────────────────────────────
+
+model Bookmark {
+  id         String   @id @default(uuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  questionId String
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  note       String?
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, questionId])
+  @@map("bookmarks")
+}
+
+// ─────────────────────────────────────────
+// FORUM
+// ─────────────────────────────────────────
+
+model ForumPost {
+  id          String       @id @default(uuid())
+  userId      String
+  user        User         @relation(fields: [userId], references: [id])
+  title       String
+  content     String
+  categoryId  String?
+  isApproved  Boolean      @default(false)
+  isPinned    Boolean      @default(false)
+  views       Int          @default(0)
+  likes       Int          @default(0)
+  replies     ForumReply[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@map("forum_posts")
+}
+
+model ForumReply {
+  id        String    @id @default(uuid())
+  postId    String
+  post      ForumPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User      @relation(fields: [userId], references: [id])
+  content   String
+  isApproved Boolean  @default(false)
+  likes     Int       @default(0)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@map("forum_replies")
+}
+
+// ─────────────────────────────────────────
+// NOTIFICATIONS
+// ─────────────────────────────────────────
+
+model Notification {
+  id        String           @id @default(uuid())
+  userId    String
+  user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      NotificationType
+  title     String
+  message   String
+  data      Json?
+  isRead    Boolean          @default(false)
+  createdAt DateTime         @default(now())
+
+  @@map("notifications")
+}
+
+// ─────────────────────────────────────────
+// AUDIT LOGS
+// ─────────────────────────────────────────
+
+model AuditLog {
+  id         String      @id @default(uuid())
+  userId     String?
+  user       User?       @relation(fields: [userId], references: [id])
+  action     AuditAction
+  entityType String?
+  entityId   String?
+  details    Json?
+  ipAddress  String?
+  userAgent  String?
+  createdAt  DateTime    @default(now())
+
+  @@map("audit_logs")
+}
