@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Deekshith Vataparthi - AI/ML Developer & Full Stack Engineer Portfolio. Showcasing software engineering projects, skills, and experience.">
+    <title>Deekshith Vataparthi | Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Canvas Background -->
+    <canvas id="particle-canvas"></canvas>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor-dot" id="cursor-dot"></div>
+    <div class="custom-cursor-outline" id="cursor-outline"></div>
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo hover-target">
+                <span class="logo-accent">&lt;</span>DV<span class="logo-accent"> /&gt;</span>
+            </a>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-toggle hover-target" id="mobile-toggle" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#hero" class="nav-link hover-target active">Home</a>
+                <a href="#about" class="nav-link hover-target">About</a>
+                <a href="#skills" class="nav-link hover-target">Skills</a>
+                <a href="#projects" class="nav-link hover-target">Projects</a>
+                <a href="#experience" class="nav-link hover-target">Experience</a>
+                <a href="#github" class="nav-link hover-target">Activity</a>
+                <a href="#contact" class="nav-link hover-target">Contact</a>
+                <a href="#contact" class="nav-btn hover-target">Hire Me</a>
+            </nav>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="badge-wrapper animate-item">
+                        <span class="hero-badge"><span class="badge-dot"></span>Available for Opportunities</span>
+                    </div>
+                    <h1 class="hero-title animate-item">
+                        Hi, I'm <span class="text-gradient">Deekshith Vataparthi</span>
+                    </h1>
+                    <div class="hero-subtitle animate-item">
+                        <span class="typing-text" id="typing-text"></span><span class="typing-cursor">|</span>
+                    </div>
+                    <p class="hero-description animate-item">
+                        Computer Science Engineering student targeting top-tier product-based companies. Specializing in AI/ML model deployment, Full-Stack applications, and advanced system designs.
+                    </p>
+                    
+                    <div class="hero-actions animate-item">
+                        <a href="#projects" class="btn btn-primary hover-target">
+                            <span>View Projects</span>
+                            <i data-lucide="arrow-right" class="btn-icon"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary hover-target">
+                            <span>Contact Me</span>
+                        </a>
+                        <a href="#" class="btn btn-tertiary hover-target" id="download-resume-btn">
+                            <i data-lucide="download" class="btn-icon"></i>
+                            <span>Get Resume</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Hero Interactive Graphic / Code Mockup -->
+                <div class="hero-graphic animate-item">
+                    <div class="code-terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-dots">
+                                <span class="dot-red"></span>
+                                <span class="dot-yellow"></span>
+                                <span class="dot-green"></span>
+                            </div>
+                            <span class="terminal-title">developer_profile.py</span>
+                        </div>
+                        <div class="terminal-body font-fira">
+<pre><code><span class="code-keyword">import</span> developer
+<span class="code-class">class</span> <span class="code-entity">DeekshithVataparthi</span>(<span class="code-class">developer</span>.<span class="code-class">FullStackAI</span>):
+    <span class="code-keyword">def</span> <span class="code-entity">__init__</span>(<span class="code-type">self</span>):
+        <span class="code-type">self</span>.name = <span class="code-string">"Deekshith Vataparthi"</span>
+        <span class="code-type">self</span>.role = <span class="code-string">"AI/ML & Full Stack Developer"</span>
+        <span class="code-type">self</span>.focus = [<span class="code-string">"LLMs"</span>, <span class="code-string">"RAG"</span>, <span class="code-string">"React"</span>, <span class="code-string">"Cloud"</span>]
+        <span class="code-type">self</span>.goals = [<span class="code-string">"NVIDIA"</span>, <span class="code-string">"Google"</span>, <span class="code-string">"Microsoft"</span>]
+    <span class="code-keyword">def</span> <span class="code-entity">get_status</span>(<span class="code-type">self</span>):
+        <span class="code-keyword">return</span> {
+            <span class="code-string">"dsa"</span>: <span class="code-string">"Optimizing algorithms daily"</span>,
+            <span class="code-string">"vibe"</span>: <span class="code-string">"Coding premium experiences"</span>,
+            <span class="code-string">"coffee"</span>: <span class="code-string">"Infinite loop"</span>
+        }
+<span class="code-keyword">print</span>(<span class="code-entity">DeekshithVataparthi</span>().get_status())</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator hover-target">
+                <a href="#about" aria-label="Scroll to About Section">
+                    <span class="mouse-icon">
+                        <span class="mouse-wheel"></span>
+                    </span>
+                </a>
+            </div>
+        </section>
+        <!-- About Section -->
+        <section id="about" class="about-section section-padding">
+            <div class="section-container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">Discover My Story</span>
+                    <h2 class="section-title">About Me</h2>
+                    <div class="header-line"></div>
+                </div>
+                
+                <div class="about-grid">
+                    <div class="about-card scroll-reveal scroll-reveal-left">
+                        <div class="about-avatar-container">
+                            <div class="avatar-glow"></div>
+                            <div class="avatar-frame">
+                                <div class="avatar-placeholder">
+                                    <i data-lucide="cpu" class="avatar-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-info-badge">
+                            <span class="info-label">Current Education</span>
+                            <span class="info-value">B.Tech - Computer Science Engineering</span>
+                        </div>
+                    </div>
+                    
+                    <div class="about-text scroll-reveal scroll-reveal-right">
+                        <h3 class="about-tagline">Building Intelligent Systems to Solve Real-World Challenges</h3>
+                        <p class="about-paragraph">
+                            I am a passionate Computer Science student focusing deeply on Artificial Intelligence, Machine Learning, Full-Stack Development, and Cloud Computing. I bridge the gap between high-level ML model architecture and reliable user interfaces.
+                        </p>
+                        <p class="about-paragraph">
+                            I love breaking down complex issues. By matching strong fundamentals in Data Structures and Algorithms with modern framework implementations, I aim to create codebases that run efficiently, scale smoothly, and feel premium.
+                        </p>
+                        
+                        <div class="about-goals">
+                            <h4 class="goals-title"><i data-lucide="target" class="goals-icon"></i> Target Industries & Companies</h4>
+                            <div class="goals-grid">
+                                <div class="goal-item"><span class="goal-dot purple"></span>NVIDIA</div>
+                                <div class="goal-item"><span class="goal-dot blue"></span>Google</div>
+                                <div class="goal-item"><span class="goal-dot cyan"></span>Microsoft</div>
+                                <div class="goal-item"><span class="goal-dot pink"></span>Apple</div>
+                                <div class="goal-item"><span class="goal-dot orange"></span>Tesla</div>
+                                <div class="goal-item"><span class="goal-dot yellow"></span>Cisco</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section section-padding">
+            <div class="section-container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">My Stack & Capabilities</span>
+                    <h2 class="section-title">Core Skills</h2>
+                    <div class="header-line"></div>
+                </div>
+                <!-- Skill Categories Grid -->
+                <div class="skills-categories-grid">
+                    
+                    <!-- AI & Machine Learning -->
+                    <div class="skills-card scroll-reveal">
+                        <div class="skills-card-header">
+                            <div class="skills-card-icon purple"><i data-lucide="brain"></i></div>
+                            <h3 class="skills-card-title">AI & Machine Learning</h3>
+                        </div>
+                        <ul class="skills-list">
+                            <li>
+                                <div class="skill-info"><span>Generative AI / LLMs / RAG</span><span class="skill-percentage">90%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill purple-fill" style="width: 90%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>LangChain & LangGraph</span><span class="skill-percentage">85%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill purple-fill" style="width: 85%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>PyTorch & TensorFlow</span><span class="skill-percentage">80%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill purple-fill" style="width: 80%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>Computer Vision (CNN)</span><span class="skill-percentage">85%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill purple-fill" style="width: 85%"></div></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Languages -->
+                    <div class="skills-card scroll-reveal">
+                        <div class="skills-card-header">
+                            <div class="skills-card-icon blue"><i data-lucide="code-2"></i></div>
+                            <h3 class="skills-card-title">Programming</h3>
+                        </div>
+                        <ul class="skills-list">
+                            <li>
+                                <div class="skill-info"><span>C / C++</span><span class="skill-percentage">95%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill blue-fill" style="width: 95%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>Python</span><span class="skill-percentage">90%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill blue-fill" style="width: 90%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>Java</span><span class="skill-percentage">85%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill blue-fill" style="width: 85%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>JavaScript / TypeScript</span><span class="skill-percentage">80%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill blue-fill" style="width: 80%"></div></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Computer Science -->
+                    <div class="skills-card scroll-reveal">
+                        <div class="skills-card-header">
+                            <div class="skills-card-icon cyan"><i data-lucide="book-open"></i></div>
+                            <h3 class="skills-card-title">CS Fundamentals</h3>
+                        </div>
+                        <ul class="skills-list">
+                            <li>
+                                <div class="skill-info"><span>Data Structures & Algorithms</span><span class="skill-percentage">90%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill cyan-fill" style="width: 90%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>Object-Oriented Programming</span><span class="skill-percentage">85%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill cyan-fill" style="width: 85%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>Operating Systems & DBMS</span><span class="skill-percentage">80%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill cyan-fill" style="width: 80%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>System Design / Networks</span><span class="skill-percentage">75%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill cyan-fill" style="width: 75%"></div></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Frontend -->
+                    <div class="skills-card scroll-reveal">
+                        <div class="skills-card-header">
+                            <div class="skills-card-icon pink"><i data-lucide="layout"></i></div>
+                            <h3 class="skills-card-title">Frontend Development</h3>
+                        </div>
+                        <ul class="skills-list">
+                            <li>
+                                <div class="skill-info"><span>HTML5 & CSS3</span><span class="skill-percentage">95%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill pink-fill" style="width: 95%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>React.js</span><span class="skill-percentage">85%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill pink-fill" style="width: 85%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>Responsive Web Design</span><span class="skill-percentage">90%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill pink-fill" style="width: 90%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>CSS Frameworks (Tailwind)</span><span class="skill-percentage">85%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill pink-fill" style="width: 85%"></div></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Backend & Databases -->
+                    <div class="skills-card scroll-reveal">
+                        <div class="skills-card-header">
+                            <div class="skills-card-icon orange"><i data-lucide="database"></i></div>
+                            <h3 class="skills-card-title">Backend & Databases</h3>
+                        </div>
+                        <ul class="skills-list">
+                            <li>
+                                <div class="skill-info"><span>Node.js / Express.js</span><span class="skill-percentage">85%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill orange-fill" style="width: 85%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>Flask / Django / REST APIs</span><span class="skill-percentage">80%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill orange-fill" style="width: 80%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>PostgreSQL & MySQL</span><span class="skill-percentage">85%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill orange-fill" style="width: 85%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>MongoDB</span><span class="skill-percentage">80%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill orange-fill" style="width: 80%"></div></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Tools & DevOps -->
+                    <div class="skills-card scroll-reveal">
+                        <div class="skills-card-header">
+                            <div class="skills-card-icon yellow"><i data-lucide="settings"></i></div>
+                            <h3 class="skills-card-title">Tools & Infrastructure</h3>
+                        </div>
+                        <ul class="skills-list">
+                            <li>
+                                <div class="skill-info"><span>Git / GitHub</span><span class="skill-percentage">90%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill yellow-fill" style="width: 90%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>Docker</span><span class="skill-percentage">75%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill yellow-fill" style="width: 75%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>Linux & Shell Scripting</span><span class="skill-percentage">80%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill yellow-fill" style="width: 80%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>Streamlit</span><span class="skill-percentage">85%</span></div>
+                                <div class="skill-bar"><div class="skill-bar-fill yellow-fill" style="width: 85%"></div></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section section-padding">
+            <div class="section-container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">Showcasing Practical Innovation</span>
+                    <h2 class="section-title">Featured Projects</h2>
+                    <div class="header-line"></div>
+                </div>
+                <!-- Filter Controls -->
+                <div class="projects-filter scroll-reveal hover-target">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="ai-ml">AI / ML</button>
+                    <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+                </div>
+                <!-- Project Grid -->
+                <div class="project-grid">
+                    
+                    <!-- Project 1 -->
+                    <div class="project-card scroll-reveal" data-category="ai-ml">
+                        <div class="project-card-image-wrapper">
+                            <div class="project-image-gradient bg-resume"></div>
+                            <div class="project-icon-overlay"><i data-lucide="file-search"></i></div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-badges">
+                                <span class="project-badge purple-badge">AI / ML</span>
+                                <span class="project-badge">Generative AI</span>
+                            </div>
+                            <h3 class="project-card-title">AI Resume Analyzer</h3>
+                            <p class="project-card-description">
+                                An AI-powered resume analysis system that evaluates resumes, extracts key skills, provides improvement suggestions, and helps candidates optimize for ATS guidelines.
+                            </p>
+                            <div class="project-tech-tags font-fira">
+                                <span>Python</span>
+                                <span>NLP</span>
+                                <span>LangChain</span>
+                                <span>Streamlit</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a href="https://github.com/DeekshithVataparthi" class="project-btn btn-icon-only hover-target" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
+                                    <i data-lucide="github"></i>
+                                </a>
+                                <a href="#" class="project-btn btn-text hover-target">
+                                    <span>Demo</span>
+                                    <i data-lucide="external-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="project-card scroll-reveal" data-category="ai-ml">
+                        <div class="project-card-image-wrapper">
+                            <div class="project-image-gradient bg-rag"></div>
+                            <div class="project-icon-overlay"><i data-lucide="message-square"></i></div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-badges">
+                                <span class="project-badge purple-badge">AI / ML</span>
+                                <span class="project-badge">RAG</span>
+                            </div>
+                            <h3 class="project-card-title">RAG PDF QA System</h3>
+                            <p class="project-card-description">
+                                An intelligent document chatbot allowing users to upload large PDF files and query content with highly contextual answers using Retrieval Augmented Generation pipelines.
+                            </p>
+                            <div class="project-tech-tags font-fira">
+                                <span>Python</span>
+                                <span>LangChain</span>
+                                <span>VectorDB</span>
+                                <span>LLMs</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a href="https://github.com/DeekshithVataparthi" class="project-btn btn-icon-only hover-target" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
+                                    <i data-lucide="github"></i>
+                                </a>
+                                <a href="#" class="project-btn btn-text hover-target">
+                                    <span>Demo</span>
+                                    <i data-lucide="external-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="project-card scroll-reveal" data-category="ai-ml">
+                        <div class="project-card-image-wrapper">
+                            <div class="project-image-gradient bg-skin"></div>
+                            <div class="project-icon-overlay"><i data-lucide="activity"></i></div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-badges">
+                                <span class="project-badge purple-badge">AI / ML</span>
+                                <span class="project-badge">Computer Vision</span>
+                            </div>
+                            <h3 class="project-card-title">Skin Infection Detection</h3>
+                            <p class="project-card-description">
+                                A computer vision diagnostic tool analyzing skin images to predict infections and diseases using Deep Convolutional Neural Networks and reporting descriptive guidance.
+                            </p>
+                            <div class="project-tech-tags font-fira">
+                                <span>Python</span>
+                                <span>TensorFlow</span>
+                                <span>CNN</span>
+                                <span>Keras</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a href="https://github.com/DeekshithVataparthi" class="project-btn btn-icon-only hover-target" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
+                                    <i data-lucide="github"></i>
+                                </a>
+                                <a href="#" class="project-btn btn-text hover-target">
+                                    <span>Demo</span>
+                                    <i data-lucide="external-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="project-card scroll-reveal" data-category="fullstack">
+                        <div class="project-card-image-wrapper">
+                            <div class="project-image-gradient bg-exam"></div>
+                            <div class="project-icon-overlay"><i data-lucide="shield-check"></i></div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-badges">
+                                <span class="project-badge blue-badge">Full Stack</span>
+                                <span class="project-badge">Security</span>
+                            </div>
+                            <h3 class="project-card-title">Secure Aptitude Exam</h3>
+                            <p class="project-card-description">
+                                An online exam platform featuring anti-cheat monitoring, secure user sessions, backend evaluation scripts, and real-time dashboard visualization.
+                            </p>
+                            <div class="project-tech-tags font-fira">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                                <span>ML Logs</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a href="https://github.com/DeekshithVataparthi" class="project-btn btn-icon-only hover-target" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
+                                    <i data-lucide="github"></i>
+                                </a>
+                                <a href="#" class="project-btn btn-text hover-target">
+                                    <span>Demo</span>
+                                    <i data-lucide="external-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 5 -->
+                    <div class="project-card scroll-reveal" data-category="ai-ml">
+                        <div class="project-card-image-wrapper">
+                            <div class="project-image-gradient bg-house"></div>
+                            <div class="project-icon-overlay"><i data-lucide="home"></i></div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-badges">
+                                <span class="project-badge purple-badge">AI / ML</span>
+                                <span class="project-badge">Regression</span>
+                            </div>
+                            <h3 class="project-card-title">House Price Prediction</h3>
+                            <p class="project-card-description">
+                                A machine learning regression project predicting housing price trends using data cleaning pipelines and feature scaling across model variants.
+                            </p>
+                            <div class="project-tech-tags font-fira">
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>Scikit-learn</span>
+                                <span>NumPy</span>
+                            </div>
+                            <div class="project-card-actions">
+                                <a href="https://github.com/DeekshithVataparthi" class="project-btn btn-icon-only hover-target" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
+                                    <i data-lucide="github"></i>
+                                </a>
+                                <a href="#" class="project-btn btn-text hover-target">
+                                    <span>Demo</span>
+                                    <i data-lucide="external-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Experience / Timeline Section -->
+        <section id="experience" class="experience-section section-padding">
+            <div class="section-container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">My Professional Growth</span>
+                    <h2 class="section-title">Experience & Internships</h2>
+                    <div class="header-line"></div>
+                </div>
+                <div class="timeline">
+                    <!-- Timeline Line -->
+                    <div class="timeline-line"></div>
+                    <!-- Timeline Item -->
+                    <div class="timeline-item scroll-reveal">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-header animate-glow">
+                                <div class="timeline-logo">
+                                    <i data-lucide="briefcase" class="timeline-logo-icon"></i>
+                                </div>
+                                <div class="timeline-meta">
+                                    <h3 class="timeline-role">AI / ML Virtual Intern</h3>
+                                    <h4 class="timeline-company">Infosys Springboard</h4>
+                                    <span class="timeline-duration">June 2025 - August 2025</span>
+                                </div>
+                            </div>
+                            <div class="timeline-body">
+                                <p>
+                                    Participated in a intensive training program working with AI algorithms and practical machine learning applications.
+                                </p>
+                                <ul class="timeline-highlights">
+                                    <li>Implemented data analysis workflows using Python, Pandas, and Scikit-learn.</li>
+                                    <li>Built classification and forecasting models using advanced regression algorithms.</li>
+                                    <li>Practiced foundational aspects of Natural Language Processing and Computer Vision.</li>
+                                    <li>Collaborated on building model testing scripts to evaluate model efficiency and precision.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- GitHub / Coding Journey Activity -->
+        <section id="github" class="github-section section-padding">
+            <div class="section-container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">Consistent Commitment</span>
+                    <h2 class="section-title">Coding Journey & Stats</h2>
+                    <div class="header-line"></div>
+                </div>
+                <!-- Stats Counters Grid -->
+                <div class="stats-counters-grid scroll-reveal">
+                    <div class="stat-card">
+                        <h3 class="stat-number text-gradient" data-target="500">0</h3>
+                        <p class="stat-label">LeetCode Solved</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 class="stat-number text-gradient" data-target="25">0</h3>
+                        <p class="stat-label">Projects Created</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 class="stat-number text-gradient" data-target="1500">0</h3>
+                        <p class="stat-label">Total Commits</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 class="stat-number text-gradient" data-target="180">0</h3>
+                        <p class="stat-label">Day Streak</p>
+                    </div>
+                </div>
+                <!-- Git Grid Card -->
+                <div class="git-grid-card scroll-reveal">
+                    <div class="git-grid-header">
+                        <div class="git-user-profile">
+                            <div class="git-user-icon"><i data-lucide="github"></i></div>
+                            <div>
+                                <h3 class="git-username">DeekshithVataparthi</h3>
+                                <p class="git-user-sub">Contribution Activity Matrix (Past 12 Months)</p>
+                            </div>
+                        </div>
+                        <a href="https://github.com/DeekshithVataparthi" target="_blank" rel="noopener noreferrer" class="btn btn-secondary hover-target btn-small">
+                            <span>Follow Developer</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Contribution Graph View -->
+                    <div class="git-contribution-wrapper">
+                        <div class="git-month-labels">
+                            <span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+                        </div>
+                        <div class="git-graph-container">
+                            <div class="git-days-labels">
+                                <span>Mon</span><span>Wed</span><span>Fri</span>
+                            </div>
+                            <div class="git-grid" id="git-contribution-grid">
+                                <!-- Generated Dynamically in Script.js -->
+                            </div>
+                        </div>
+                        <div class="git-legend">
+                            <span>Less</span>
+                            <div class="legend-cell level-0"></div>
+                            <div class="legend-cell level-1"></div>
+                            <div class="legend-cell level-2"></div>
+                            <div class="legend-cell level-3"></div>
+                            <div class="legend-cell level-4"></div>
+                            <span>More</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Achievements Section -->
+        <section id="achievements" class="achievements-section section-padding">
+            <div class="section-container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">Milestones Met</span>
+                    <h2 class="section-title">Key Achievements</h2>
+                    <div class="header-line"></div>
+                </div>
+                <div class="achievements-grid">
+                    
+                    <!-- Achievement Item 1 -->
+                    <div class="achievement-card scroll-reveal">
+                        <div class="achievement-icon-wrapper purple">
+                            <i data-lucide="award"></i>
+                        </div>
+                        <h3 class="achievement-title">LeetCode Active Coder</h3>
+                        <p class="achievement-desc">
+                            Solved over 500 algorithmic challenges. Earned multiple monthly streak badges demonstrating consistency in complex DSA problem solving.
+                        </p>
+                    </div>
+                    <!-- Achievement Item 2 -->
+                    <div class="achievement-card scroll-reveal">
+                        <div class="achievement-icon-wrapper blue">
+                            <i data-lucide="cpu"></i>
+                        </div>
+                        <h3 class="achievement-title">AI/ML Developer Badges</h3>
+                        <p class="achievement-desc">
+                            Completed comprehensive hands-on models training, resulting in functional AI tools like the Skin Infection Classifier and PDF Chatbot.
+                        </p>
+                    </div>
+                    <!-- Achievement Item 3 -->
+                    <div class="achievement-card scroll-reveal">
+                        <div class="achievement-icon-wrapper cyan">
+                            <i data-lucide="git-pull-request"></i>
+                        </div>
+                        <h3 class="achievement-title">Open Source Objectives</h3>
+                        <p class="achievement-desc">
+                            Actively documenting source architectures and planning pull requests to AI utilities, supporting reusable components for public repositories.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section section-padding">
+            <div class="section-container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-subtitle">Let's Work Together</span>
+                    <h2 class="section-title">Get in Touch</h2>
+                    <div class="header-line"></div>
+                </div>
+                <div class="contact-grid">
+                    
+                    <!-- Contact Information Column -->
+                    <div class="contact-info scroll-reveal scroll-reveal-left">
+                        <h3 class="contact-info-title">Let's Discuss Internships, Projects, and Roles</h3>
+                        <p class="contact-info-desc">
+                            I am open to B.Tech internships, graduation projects, and software engineer positions. Send me a message or connect through social links.
+                        </p>
+                        <div class="contact-details">
+                            <div class="contact-detail-item">
+                                <div class="detail-icon"><i data-lucide="mail"></i></div>
+                                <div class="detail-text">
+                                    <span class="detail-label">Email</span>
+                                    <a href="mailto:deekshithvataparthi@gmail.com" class="detail-link hover-target">deekshithvataparthi@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div class="detail-icon"><i data-lucide="linkedin"></i></div>
+                                <div class="detail-text">
+                                    <span class="detail-label">LinkedIn</span>
+                                    <a href="https://linkedin.com/in/deekshithvataparthi" target="_blank" rel="noopener noreferrer" class="detail-link hover-target">linkedin.com/in/deekshithvataparthi</a>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div class="detail-icon"><i data-lucide="github"></i></div>
+                                <div class="detail-text">
+                                    <span class="detail-label">GitHub</span>
+                                    <a href="https://github.com/DeekshithVataparthi" target="_blank" rel="noopener noreferrer" class="detail-link hover-target">github.com/DeekshithVataparthi</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- System Status -->
+                        <div class="system-status-card animate-glow">
+                            <div class="system-status-indicator"><span class="pulse-indicator"></span></div>
+                            <div class="system-status-text">
+                                <h4>Availability</h4>
+                                <p>Actively looking for software engineering roles</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Contact Form Column -->
+                    <div class="contact-form-container scroll-reveal scroll-reveal-right">
+                        <form id="portfolio-contact-form" class="contact-form" novalidate>
+                            <div class="form-group">
+                                <label for="form-name" class="form-label">Full Name</label>
+                                <input type="text" id="form-name" name="name" class="form-input hover-target" placeholder="John Doe" required>
+                                <span class="form-error-msg" id="name-error">Please enter your name.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-email" class="form-label">Email Address</label>
+                                <input type="email" id="form-email" name="email" class="form-input hover-target" placeholder="john@example.com" required>
+                                <span class="form-error-msg" id="email-error">Please enter a valid email address.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-subject" class="form-label">Subject</label>
+                                <input type="text" id="form-subject" name="subject" class="form-input hover-target" placeholder="Collaboration / Job Opportunity" required>
+                                <span class="form-error-msg" id="subject-error">Please enter a subject.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-message" class="form-label">Message</label>
+                                <textarea id="form-message" name="message" class="form-textarea hover-target" placeholder="Your message here..." rows="5" required></textarea>
+                                <span class="form-error-msg" id="message-error">Please write your message details.</span>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary hover-target btn-full">
+                                <span>Send Message</span>
+                                <i data-lucide="send" class="btn-icon"></i>
+                            </button>
+                            
+                            <div class="form-success-alert" id="form-success-alert">
+                                <i data-lucide="check-circle" class="success-icon"></i>
+                                <span>Thank you! Your message was sent successfully.</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="footer-copyright">&copy; 2026 Deekshith Vataparthi. All Rights Reserved.</p>
+            <div class="footer-socials">
+                <a href="https://github.com/DeekshithVataparthi" class="footer-social-link hover-target" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i data-lucide="github"></i></a>
+                <a href="https://linkedin.com/in/deekshithvataparthi" class="footer-social-link hover-target" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                <a href="mailto:deekshithvataparthi@gmail.com" class="footer-social-link hover-target" aria-label="Email"><i data-lucide="mail"></i></a>
+            </div>
+        </div>
+    </footer>
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom JS File -->
+    <script src="script.js"></script>
+</body>
+</html>
